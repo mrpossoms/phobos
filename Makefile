@@ -17,6 +17,7 @@ help:
 		@echo 	'  help      - Print this help information.'
 		@echo	'  install   - Install the Phobos code to your Blender installation.'
 		@echo	'              This also sets up the configuration folder for Phobos.'
+		@echo   '  addon     - Create addon .zip package from source.'
 		@echo	'  version   - Prints some help relating to drafting a new version.'
 
 install:
@@ -44,6 +45,9 @@ apidoc:
 		mv doc/_build/html/* .
 		@echo 'Please commit and push the changes to publish the new doc on https://dfki-ric.github.io/phobos'
 
+addon:
+	zip -r phobos.zip phobos
+
 version:
 		@echo 'Change version in:'
 		@echo '  - codemeta.json'
@@ -52,4 +56,4 @@ version:
 		@echo '  - doc/conf.py'
 		@echo '  - doc/index.rst'
 
-.PHONY: init test install format apidoc help
+.PHONY: init test install format apidoc addon help
